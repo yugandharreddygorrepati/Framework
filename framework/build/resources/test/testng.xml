@@ -1,0 +1,40 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!-- time-out="5000" -->
+<suite name="Suite1" parallel="false" thread-count="1" verbose="10">
+	<listeners>
+		<listener class-name="com.framework.lib.TestListener" />
+		<listener class-name="com.framework.lib.RetryListener" />
+	</listeners>
+	<test name="Google" preserve-order="true">
+		<groups>
+			<run>
+				<include name="smoke" />
+			</run>
+		</groups>
+		<classes>
+
+
+		
+			
+						<class name="com.framework.tests.TestGoogle" />
+			
+
+
+			<!-- <class name="com.ire.tests.TestGrethanEqFiltOnFloat" />
+			<class name="com.ire.tests.TestGrethanFiltOnFloat" />
+			<class name="com.ire.tests.TestGrethanFiltOnNumeric" />
+			<class name="com.ire.tests.TestGrethanEqFiltOnNumeric" />
+
+			<class name="com.ire.tests.TestLessthanFiltOnNumeric" />
+			<class name="com.ire.tests.TestLessthanEqFiltOnNumeric" />
+			<class name="com.ire.tests.TestLessthanFiltOnFloat" />
+			<class name="com.ire.tests.TestLessthanEqFiltOnFloat" />
+
+
+			<class name="com.ire.tests.TestBetweenFiltOnFloat" />
+			<class name="com.ire.tests.TestBetweenFiltOnDate" /> -->
+
+
+		</classes>
+	</test>
+</suite>

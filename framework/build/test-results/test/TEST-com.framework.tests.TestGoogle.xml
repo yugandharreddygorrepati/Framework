@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.framework.tests.TestGoogle" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-01-07T17:51:15" hostname="yugi-PC" time="22.284">
+  <properties/>
+  <testcase name="testGoogle" classname="com.framework.tests.TestGoogle" time="22.284"/>
+  <system-out><![CDATA[Inside initWebDriver : Browser type is :CHROME
+Windows chrome driver:/C:/Users/yugi/Desktop/framework/build/resources/test/drivers/chromedriver.exe
+Init chrome driver :: 
+	OS_NAME ->windows
+
+	OS_VERSION ->64
+
+	BROWSER_TYPE ->CHROME
+
+	BASEURL ->https://www.google.co.in/
+
+	driverpath for windows->/C:/Users/yugi/Desktop/framework/build/resources/test/drivers/chromedriver.exe
+chrome
+XP
+Browser Name: chrome OS name: XP Browser version: 50.0.2661.87
+navigated to https://www.google.co.in/ page title : Google
+after send keys locator - [name: q] value - 
+after send keys locator - [name: q] value - Selenium
+after send keys locator - [name: q]
+----- closeBrowser() : Closing the currently opened browser and killing driver CHROME
+]]></system-out>
+  <system-err><![CDATA[log4j:WARN No appenders could be found for logger (com.framework.lib.TestListener).
+log4j:WARN Please initialize the log4j system properly.
+Starting ChromeDriver 2.20.353145 (343b531d31eeb933ec778dbcf7081628a1396067) on port 11452
+Only local connections are allowed.
+]]></system-err>
+</testsuite>

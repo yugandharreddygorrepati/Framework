@@ -1,0 +1,113 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'selenium'
+version = '0.0.1-SNAPSHOT'
+
+description = "framework"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+     mavenCentral()
+     mavenLocal()   
+     maven { url "http://repo.maven.apache.org/maven2" } 
+     
+     
+}
+
+dependencies {
+compile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.3'
+        compile group: 'io.rest-assured', name: 'json-schema-validator', version: '3.0.0'
+    
+           compile group: 'com.github.fge', name: 'json-schema-validator', version: '2.2.6'
+           compile group: 'com.github.fge', name: 'json-schema-core', version: '1.2.5'
+   
+    
+    testCompile group: 'org.testng', name: 'testng', version:'6.11'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:'2.53.1'
+    compile group: 'com.relevantcodes', name: 'extentreports', version:'2.41.2'
+    compile group: 'net.sourceforge.jexcelapi', name: 'jxl', version:'2.6.10'
+    compile group: 'log4j', name: 'log4j', version:'1.2.14'
+    compile group: 'javax.mail', name: 'mail', version:'1.4.3'
+    compile group: 'org.apache.poi', name: 'poi', version:'3.8'
+    compile group: 'com.google.inject', name: 'guice', version:'3.0'
+    compile group: 'commons-httpclient', name: 'commons-httpclient', version:'3.0.1'
+    compile group: 'org.json', name: 'json', version:'20090211'
+    compile group: 'com.jcraft', name: 'jsch', version:'0.1.53'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.5'
+
+	// https://mvnrepository.com/artifact/org.sikuli/sikuli-api
+	compile group: 'org.sikuli', name: 'sikuli-api', version: '1.2.0'
+	
+    testCompile group: 'junit', name: 'junit', version:'4.8.2'
+    testCompile group: 'org.testng', name: 'testng', version:'6.11'
+    
+    
+    
+}
+
+task wrapper(type: Wrapper) {
+
+    gradleVersion = '3.1'
+
+    scriptFile = 'gradlew' //define a new name for gradle
+
+    jarFile = 'gradle-bin.jar' //jar with files to download and invoke Gradle
+
+    distributionUrl = 'https://services.gradle.org/distributions/gradle-3.1-bin.zip'
+    
+
+}
+test {
+    useTestNG {
+    outputDirectory = file("test-output//")
+    useDefaultListeners = true
+  //includeGroups groups
+        suites "src/test/resources/testng.xml"
+    }
+  
+ reports.html.enabled=true
+    testLogging {
+        showStandardStreams = true
+
+        // log results to "build/test-results" directory
+        testReportDirName="build/test-results"
+        exceptionFormat "full"
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+  
+	systemProperties = [
+		//ENV_BASEURL: "https://"+System.getProperty("GATEWAYSVR", "dmipvm.corp.fairisaac.com")+"/cyber-gateway",
+		//ENV_BROWSER_TYPE: System.getProperty("ENV_BROWSER_TYPE","IE"),
+		ENV_OS_NAME: System.getProperty("ENV_OS_NAME", "Windows")
+   ]
+}
+
+task Test(type: Test, dependsOn: testClasses) {
+    include '**/*'
+}
+tasks.withType(Test) {
+    testLogging {
+        events 'started', 'passed'
+    }
+}
+
+println "#######################################################################"
+println "#"
+println "#  root project is:           [${rootProject.name}]"
+println "#  detected os is:            [${System.properties['os.name']}]"
+println "#  detected java home is:     [${System.properties['java.home']}]"
+println "#  detected java version is:  [${System.properties['java.version']}]"
+println "#  detected java vendor is:   [${System.properties['java.vendor']}]"
+println "#  build version is:          [$version]"
+println "#  starting task is:          ${gradle.startParameter.taskNames}"
+println "#"
+println "#######################################################################"

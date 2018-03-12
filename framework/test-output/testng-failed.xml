@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite1]">
+  <listeners>
+    <listener class-name="com.framework.lib.TestListener"/>
+    <listener class-name="com.framework.lib.RetryListener"/>
+  </listeners>
+  <test name="Google(failed)">
+    <groups>
+      <run>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.framework.tests.TestGoogle">
+        <methods>
+          <include name="testGoogle"/>
+        </methods>
+      </class> <!-- com.framework.tests.TestGoogle -->
+    </classes>
+  </test> <!-- Google(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

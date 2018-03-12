@@ -1,0 +1,244 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>selenium</groupId>
+    <artifactId>CyberGW-1.0</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>CyberGW-1.0</name>
+   <!-- <url>http://maven.apache.org</url>-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- <testng.groups>smoke</testng.groups> -->
+        <test-input-1.0spec.ver>0.1.2</test-input-1.0spec.ver>
+        <test-scores-1.0spec.ver>0.1.8</test-scores-1.0spec.ver>
+    </properties>
+    <dependencies>
+        <!-- Java API to access the Client Driver Protocols -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.53.1</version>
+        </dependency>
+         <!-- ExtentreportsAPI for advanced html reports with screenshots in case of failures-->
+        <dependency>
+   			 <groupId>com.relevantcodes</groupId>
+    		 <artifactId>extentreports</artifactId>
+    		 <version>2.41.2</version>
+		</dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.5</version>
+</dependency>
+        <!-- JExcel API is a java library which provides the ability to read, write, and modify Microsoft Excel spreadsheets.-->
+        <dependency>
+            <groupId>net.sourceforge.jexcelapi</groupId>
+            <artifactId>jxl</artifactId>
+            <version>2.6.10</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+        </dependency>
+        <!-- Java Mail API used to send Mails. -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.10</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Java API for manipulate the Microsoft Excel Sheets.  -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.8</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+        </dependency>
+        <!-- JSch API for remote file transfer  -->
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.53</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.sikuli/SikuliX-Setup -->
+		<dependency>
+    		<groupId>org.sikuli</groupId>
+    		<artifactId>SikuliX-Setup</artifactId>
+    		<version>1.1.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.sikuli/SikuliX-Libs -->
+		<dependency>
+    		<groupId>org.sikuli</groupId>
+    		<artifactId>SikuliX-Libs</artifactId>
+    		<version>1.1.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.sikuli/SikuliX-Basics -->
+		<dependency>
+    		<groupId>org.sikuli</groupId>
+    		<artifactId>SikuliX-Basics</artifactId>
+    		<version>1.1.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.sikuli/sikuli-api -->
+		<dependency>
+    		<groupId>org.sikuli</groupId>
+    		<artifactId>sikuli-api</artifactId>
+    	<version>1.2.0</version>
+		</dependency>
+		
+        <dependency>
+      <groupId>com.sikulix</groupId>
+      <artifactId>sikulixapi</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+    </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.4.3</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                        <!-- <groups>${testng.groups}</groups> -->
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                    </configuration>
+                    <version>2.3.2</version>
+                </plugin>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-resources-plugin</artifactId>
+                                        <versionRange>[2.5,)</versionRange>
+                                        <goals>
+                                            <goal>resources</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore/>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <!-- artifactItems>
+                                        
+                                        <artifactItem>
+                                            <groupId>com.fico.analytics</groupId>
+                                            <artifactId>test-input-1.0spec</artifactId>
+                                            <version>${test-input-1.0spec.ver}-SNAPSHOT</version>
+                                            <type>gz</type>
+                                            <overWrite>true</overWrite>
+                                            <outputDirectory>${project.build.directory}/test-classes/input
+                                            </outputDirectory>
+                                            <destFileName>test-input-1.0spec.gz</destFileName>
+                                        </artifactItem>
+                                        <artifactItem>
+                                            <groupId>com.fico.analytics</groupId>
+                                            <artifactId>test-scores-1.0spec</artifactId>
+                                            <version>${test-scores-1.0spec.ver}-SNAPSHOT</version>
+                                            <type>gz</type>
+                                            <overWrite>true</overWrite>
+                                            <outputDirectory>${project.build.directory}/test-classes/output
+                                            </outputDirectory>
+                                            <destFileName>test-scores-1.0spec.gz</destFileName>
+                                        </artifactItem>
+                                    </artifactItems -->
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            
+
+            <!-- dependencies>
+                <dependency>
+                    <groupId>com.fico.analytics</groupId>
+                    <artifactId>test-input-1.0spec</artifactId>
+                    <version>${test-input-1.0spec.ver}-SNAPSHOT</version>
+                    <type>gz</type>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.fico.analytics</groupId>
+                    <artifactId>test-scores-1.0spec</artifactId>
+                    <version>${test-scores-1.0spec.ver}-SNAPSHOT</version>
+                    <type>gz</type>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies -->
+        </profile>
+    </profiles>
+</project>
